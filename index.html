@@ -377,7 +377,11 @@
                 contentDisplay.classList.remove("hidden");
                 backButton.classList.remove("hidden");
                 
-                contentDisplay.scrollIntoView({ behavior: 'smooth' });
+                   // Adjust scrolling to account for navbar height
+    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Get navbar height
+    const contentTop = contentDisplay.getBoundingClientRect().top + window.scrollY - navbarHeight; // Calculate top position
+    window.scrollTo({ top: contentTop, behavior: 'smooth' }); // Smooth scroll to the adjusted position
+
                 
                 history.pushState({ view: "results" }, "Results", "");
 
