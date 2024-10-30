@@ -376,8 +376,12 @@
 
                 contentDisplay.classList.remove("hidden");
                 backButton.classList.remove("hidden");
-
+                
+                contentDisplay.scrollIntoView({ behavior: 'smooth' });
+                
                 history.pushState({ view: "results" }, "Results", "");
+
+                
             };
 
             backButton.addEventListener("click", () => {
